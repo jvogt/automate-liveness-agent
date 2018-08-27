@@ -8,4 +8,5 @@ default['liveness-agent-test']['automate'].tap do |automate|
   automate['org_name'] = 'default'
   automate['host'] = '192.168.33.66'
   automate['port'] = 9292
+  automate['rename_admin'] = false
 end

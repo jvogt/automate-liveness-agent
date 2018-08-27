@@ -39,3 +39,10 @@ directory '/var/log/chef' do
   owner 'vagrant'
   only_if { node['platform_family'] == 'mac_os_x' }
 end
+
+# testing https://github.com/chef/automate-liveness-agent/pull/53
+if node['liveness-agent-test']['automate']['rename_admin'] == true
+  execute "wmic useraccount where name='administrator' rename renamed_admin" do
+    not_if 'net user | find /i "renamed_admin"'
+  end
+end

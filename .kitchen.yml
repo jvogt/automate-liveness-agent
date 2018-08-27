@@ -267,6 +267,38 @@ platforms:
   #
   # windows
   #
+  - name: win-2008-std-renamed-admin
+    provisioner:
+      require_chef_omnibus: 14
+    driver:
+      box: chef/windows-server-2008r2-standard
+    attributes:
+      liveness-agent-test:
+        automate:
+          org_name: windows2008r2ra
+          rename_admin: true
+    verifier:
+      attributes:
+        org_name: windows2008r2ra
+        kitchen_dir: C:\\Users\\vagrant\\AppData\\Local\\Temp\\kitchen\\
+        windows: true
+        sleep_seconds: 100
+  - name: win-2008-std-renamed-admin-12
+    provisioner:
+      require_chef_omnibus: 12
+    driver:
+      box: chef/windows-server-2008r2-standard
+    attributes:
+      liveness-agent-test:
+        automate:
+          org_name: windows2008r2ra12
+          rename_admin: true
+    verifier:
+      attributes:
+        org_name: windows2008r2ra12
+        kitchen_dir: C:\\Users\\vagrant\\AppData\\Local\\Temp\\kitchen\\
+        windows: true
+        sleep_seconds: 100
   - name: win-2008-std-14
     provisioner:
       product_name: chef
@@ -312,6 +344,38 @@ platforms:
     verifier:
       attributes:
         org_name: windows2008r2c12
+        kitchen_dir: C:\\Users\\vagrant\\AppData\\Local\\Temp\\kitchen\\
+        windows: true
+        sleep_seconds: 100
+  - name: win-2012-std-renamed-admin
+    provisioner:
+      require_chef_omnibus: 14
+    driver:
+      box: chef/windows-server-2012r2-standard
+    attributes:
+      liveness-agent-test:
+        automate:
+          org_name: windows2012r2ra
+          rename_admin: true
+    verifier:
+      attributes:
+        org_name: windows2012r2ra
+        kitchen_dir: C:\\Users\\vagrant\\AppData\\Local\\Temp\\kitchen\\
+        windows: true
+        sleep_seconds: 100
+  - name: win-2012-std-renamed-admin-12
+    provisioner:
+      require_chef_omnibus: 12
+    driver:
+      box: chef/windows-server-2012r2-standard
+    attributes:
+      liveness-agent-test:
+        automate:
+          org_name: windows2012r2ra12
+          rename_admin: true
+    verifier:
+      attributes:
+        org_name: windows2012r2ra12
         kitchen_dir: C:\\Users\\vagrant\\AppData\\Local\\Temp\\kitchen\\
         windows: true
         sleep_seconds: 100
@@ -364,6 +428,38 @@ platforms:
         windows: true
         sleep_seconds: 100
   # need to verify these are the best boxes to use
+  - name: win-2016-standard-renamed-admin
+    provisioner:
+      require_chef_omnibus: 14
+    driver:
+      box: mwrock/Windows2016
+    attributes:
+      liveness-agent-test:
+        automate:
+          org_name: windows2016ra
+          rename_admin: true
+    verifier:
+      attributes:
+        org_name: windows2016ra
+        kitchen_dir: C:\\Users\\vagrant\\AppData\\Local\\Temp\\kitchen\\
+        windows: true
+        sleep_seconds: 100
+  - name: win-2016-std-renamed-admin-12
+    provisioner:
+      require_chef_omnibus: 12
+    driver:
+      box: mwrock/Windows2016
+    attributes:
+      liveness-agent-test:
+        automate:
+          org_name: windows2016ra12
+          rename_admin: true
+    verifier:
+      attributes:
+        org_name: windows2016ra12
+        kitchen_dir: C:\\Users\\vagrant\\AppData\\Local\\Temp\\kitchen\\
+        windows: true
+        sleep_seconds: 100
   - name: win-2016-std-14
     provisioner:
       product_name: chef
@@ -409,6 +505,38 @@ platforms:
     verifier:
       attributes:
         org_name: windows2016c12
+        kitchen_dir: C:\\Users\\vagrant\\AppData\\Local\\Temp\\kitchen\\
+        windows: true
+        sleep_seconds: 100
+  - name: win-8-1-std-renamed-admin
+    provisioner:
+      require_chef_omnibus: 14
+    driver:
+      box: chef/windows-8.1-enterprise
+    attributes:
+      liveness-agent-test:
+        automate:
+          org_name: windows8-1ra
+          rename_admin: true
+    verifier:
+      attributes:
+        org_name: windows8-1ra
+        kitchen_dir: C:\\Users\\vagrant\\AppData\\Local\\Temp\\kitchen\\
+        windows: true
+        sleep_seconds: 100
+  - name: win-8-1-std-renamed-admin-12
+    provisioner:
+      require_chef_omnibus: 12
+    driver:
+      box: chef/windows-8.1-enterprise
+    attributes:
+      liveness-agent-test:
+        automate:
+          org_name: windows8-1ra12
+          rename_admin: true
+    verifier:
+      attributes:
+        org_name: windows8-1ra12
         kitchen_dir: C:\\Users\\vagrant\\AppData\\Local\\Temp\\kitchen\\
         windows: true
         sleep_seconds: 100
@@ -910,6 +1038,12 @@ suites:
       - win-2016-std-12
       - win-2016-std-13
       - win-2016-std-14
+      - win-2008-std-renamed-admin
+      - win-2012-std-renamed-admin
+      - win-2016-std-renamed-admin
+      - win-2008-std-renamed-admin-12
+      - win-2012-std-renamed-admin-12
+      - win-2016-std-renamed-admin-12
       # secondary platforms
       - freebsd-10.3
       - freebsd-10.3-12
@@ -932,6 +1066,8 @@ suites:
       - win-8-1-std-12
       - win-8-1-std-13
       - win-8-1-std-14
+      - win-8-1-std-renamed-admin
+      - win-8-1-std-renamed-admin-12
       - macos-10.9
       - macos-10.9-12
       - macos-10.10

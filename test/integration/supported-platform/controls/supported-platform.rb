@@ -37,7 +37,7 @@ current_cmd   =
 
 control "setup-001" do
   desc "setup"
-  title "converge previous stable version"
+  title "converge previous stable version. if this fails while testing a bugfix it could be normal."
 
   describe command(stable_cmd) do
     its("exit_status") { should eq(0) }
